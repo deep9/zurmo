@@ -1,0 +1,10 @@
+services:
+  - memcache
+
+before_script:
+  - mysql -u root -e 'create database zurmo_test;'
+  - mysql -u root -e 'create database zurmo_temp;'
+  - mysql -u root -e 'CREATE USER "zurmo_test"@"localhost" IDENTIFIED BY "zurmo_test";'
+  - mysql -u root -e 'CREATE USER "zurmo_temp"@"localhost" IDENTIFIED BY "zurmo_temp";'
+  - mysql -u root -e 'GRANT ALL ON zurmo_test.* TO "zurmo_test"@"localhost";'
+  - mysql -u root -e 'GRANT ALL ON zurmo_temp.* TO "zurmo_temp"@"localhost";'
